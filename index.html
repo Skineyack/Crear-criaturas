@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversor de Texturas</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Convertidor de Texturas</title>
 </head>
 <body>
-    <h1>Conversor de Texturas de Minecraft a Survivalcraft</h1>
-    <form id="formulario">
-        <input type="file" id="minecraftZip" accept=".zip" required>
-        <input type="file" id="survivalcraftTexture" accept=".png" required>
-        <select id="resolucion">
-            <option value="256">256x256</option>
-            <option value="512">512x512</option>
-            <option value="1024">1024x1024</option>
-            <option value="2048">2048x2048</option>
-        </select>
-        <button type="submit">Convertir</button>
-    </form>
-    <div id="cargando" style="display:none;">Cargando...</div>
-    <div id="resultado" style="display:none;">
-        <h2>Resultado</h2>
-        <canvas id="canvasResultado"></canvas>
-        <button id="descargar">Descargar Textura</button>
+    <div class="container">
+        <h1>Convertidor de Texturas de Minecraft a Survivalcraft</h1>
+        <form id="textureForm">
+            <label for="minecraftTextures">Inserta ZIP con las texturas de Minecraft:</label>
+            <input type="file" id="minecraftTextures" accept=".zip" required>
+
+            <label for="survivalcraftTexture">Inserta textura de Survivalcraft:</label>
+            <input type="file" id="survivalcraftTexture" accept=".png" required>
+
+            <label for="resolution">Selecciona la resolución de Survivalcraft:</label>
+            <select id="resolution" required>
+                <option value="256">256x256</option>
+                <option value="512">512x512</option>
+                <option value="1024">1024x1024</option>
+                <option value="2048">2048x2048</option>
+            </select>
+
+            <button type="submit">Convertir Texturas</button>
+        </form>
+
+        <div id="loading" style="display: none;">Cargando...</div>
+        <div id="result" style="display: none;">
+            <h2>Resultado</h2>
+            <img id="resultImage" alt="Textura resultante">
+            <a id="downloadLink" href="#" download="result.png">Descargar Textura</a>
+        </div>
     </div>
 
     <script src="script.js"></script>
